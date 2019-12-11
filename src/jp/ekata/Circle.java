@@ -59,27 +59,38 @@ public class Circle extends Shape {
             getY());
    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + radius;
-		return result;
-	}
+   @Override
+   public int hashCode() {
+      final int prime = 31;
+      int result = super.hashCode();
+      result = prime * result + radius;
+      return result;
+   }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (!(getClass() == obj.getClass()))
-			return false;
-		Circle other = (Circle) obj;
-		if (radius != other.radius)
-			return false;
-		return true;
-	}
+   @Override
+   public boolean equals(Object obj) {
+      if (this == obj)
+         return true;
+      if (!super.equals(obj))
+         return false;
+      if (getClass() != obj.getClass())
+         return false;
+      Circle other = (Circle) obj;
+      if (radius != other.radius)
+         return false;
+      return true;
+   }
 
+   @Override
+   public void draw(DrawingContext dc) {
+      dc.draw(this);
+   }
+
+
+   @Override
+   public void scale(int factor) {
+      double f = Math.sqrt(factor) / 10;
+      radius = (int) (radius * f);
+   }
 
 }

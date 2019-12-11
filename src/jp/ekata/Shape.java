@@ -1,6 +1,6 @@
 package jp.ekata;
 
-public abstract class Shape {
+public abstract class Shape implements Drawable {
    private int x;
    private int y;
    private static int count = 0;
@@ -70,5 +70,5 @@ public abstract class Shape {
       if (y != other.y)
          return false;
       return true;
-   }   
+   }
 }

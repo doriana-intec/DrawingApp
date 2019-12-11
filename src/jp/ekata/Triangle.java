@@ -73,6 +73,20 @@ public class Triangle extends Shape {
             .format(
                   "Triangle [width=%s, height=%s, perpendicular=%s, x=%s, y=%s]",
                   width, height, perpendicular, getX(), getY());
-   }      
+   }   
+   
+   @Override
+   public void draw(DrawingContext dc) {
+      dc.draw(this);
+   }
+
+   @Override
+   public void scale(int factor) {
+      double f = Math.sqrt(factor)/10;
+      height= (int) (height*f);
+      width=  (int) (width*f);
+      perpendicular=  (int) (perpendicular*f);
+   }
+
 }
 

@@ -1,17 +1,14 @@
 package jp.ekata;
 
 public class Rectangle extends Shape {
-
    private int width;
    private int height;
    public static final int ANGLES;
    private static int count;
-
    static {
       count = 0;
       ANGLES = 4;
    }
-
    {
       count++;
    }
@@ -67,6 +64,13 @@ public class Rectangle extends Shape {
       return (width + height) * 2;
    }
 
+
+   public void scale(int factor) {
+      double f = Math.sqrt(factor) / 10;
+      height = (int) (height * f);
+      width = (int) (width * f);
+   }
+
    public static int getCount() {
       return count;
    }
@@ -74,11 +78,10 @@ public class Rectangle extends Shape {
    @Override
    public String toString() {
       return String.format(
-            "Rectangle [width=%s, height=%s, x=%s, y=%s]", width,
-            height, getX(), getY());
+         "Rectangle [width=%s, height=%s, x=%s, y=%s]", width,
+         height, getX(), getY());
    }
 
-   
    @Override
    public int hashCode() {
       final int prime = 31;
@@ -102,6 +105,11 @@ public class Rectangle extends Shape {
       if (width != other.width)
          return false;
       return true;
+   }
+
+   @Override
+   public void draw(DrawingContext dc) {
+      dc.draw(this);
    }
 
 }

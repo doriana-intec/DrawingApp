@@ -51,5 +51,4 @@ public class Square extends Rectangle {
       return String.format("Square [side=%s, x=%s, y=%s]",
             getSide(), getX(), getY());
    }
-
 }
